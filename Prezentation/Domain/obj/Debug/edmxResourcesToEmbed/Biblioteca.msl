@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BibliotecaModelStoreContainer" CdmEntityContainer="BibliotecaModelContainer">
+    <EntitySetMapping Name="GENs">
+      <EntityTypeMapping TypeName="IsTypeOf(BibliotecaModel.GEN)">
+        <MappingFragment StoreEntitySet="GENs">
+          <ScalarProperty Name="GenId" ColumnName="GenId" />
+          <ScalarProperty Name="Descriere" ColumnName="Descriere" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AUTORs">
+      <EntityTypeMapping TypeName="IsTypeOf(BibliotecaModel.AUTOR)">
+        <MappingFragment StoreEntitySet="AUTORs">
+          <ScalarProperty Name="AutorId" ColumnName="AutorId" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="Prenume" ColumnName="Prenume" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CARTEs">
+      <EntityTypeMapping TypeName="IsTypeOf(BibliotecaModel.CARTE)">
+        <MappingFragment StoreEntitySet="CARTEs">
+          <ScalarProperty Name="CarteId" ColumnName="CarteId" />
+          <ScalarProperty Name="AutorId" ColumnName="AutorId" />
+          <ScalarProperty Name="Titlu" ColumnName="Titlu" />
+          <ScalarProperty Name="GenId" ColumnName="GenId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IMPRUMUTs">
+      <EntityTypeMapping TypeName="IsTypeOf(BibliotecaModel.IMPRUMUT)">
+        <MappingFragment StoreEntitySet="IMPRUMUTs">
+          <ScalarProperty Name="ImprumutId" ColumnName="ImprumutId" />
+          <ScalarProperty Name="CarteId" ColumnName="CarteId" />
+          <ScalarProperty Name="CititorId" ColumnName="CititorId" />
+          <ScalarProperty Name="DataImprumut" ColumnName="DataImprumut" />
+          <ScalarProperty Name="DataScadenta" ColumnName="DataScadenta" />
+          <ScalarProperty Name="DataRestituire" ColumnName="DataRestituire" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CITITORs">
+      <EntityTypeMapping TypeName="IsTypeOf(BibliotecaModel.CITITOR)">
+        <MappingFragment StoreEntitySet="CITITORs">
+          <ScalarProperty Name="CititorId" ColumnName="CititorId" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="Prenume" ColumnName="Prenume" />
+          <ScalarProperty Name="Adresa" ColumnName="Adresa" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Stare" ColumnName="Stare" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="REVIEWs">
+      <EntityTypeMapping TypeName="IsTypeOf(BibliotecaModel.REVIEW)">
+        <MappingFragment StoreEntitySet="REVIEWs">
+          <ScalarProperty Name="ReviewId" ColumnName="ReviewId" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="ImprumutId" ColumnName="ImprumutId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

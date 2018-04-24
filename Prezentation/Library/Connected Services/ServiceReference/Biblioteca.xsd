@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Domain.ModelAux" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Domain.ModelAux" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="AchizitieCarte">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descriere" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumarCarti" type="xs:int" />
+      <xs:element minOccurs="0" name="NumeAutor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PrenumeAutor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Titlu" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AchizitieCarte" nillable="true" type="tns:AchizitieCarte" />
+  <xs:complexType name="InregistrareCititor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Adresa" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nume" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Prenume" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InregistrareCititor" nillable="true" type="tns:InregistrareCititor" />
+  <xs:complexType name="ArrayOfTopCarti">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TopCarti" nillable="true" type="tns:TopCarti" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTopCarti" nillable="true" type="tns:ArrayOfTopCarti" />
+  <xs:complexType name="TopCarti">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Count" type="xs:int" />
+      <xs:element minOccurs="0" name="Titlu" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TopCarti" nillable="true" type="tns:TopCarti" />
+  <xs:complexType name="ArrayOfTopAutori">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TopAutori" nillable="true" type="tns:TopAutori" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTopAutori" nillable="true" type="tns:ArrayOfTopAutori" />
+  <xs:complexType name="TopAutori">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Nume" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Prenume" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Scor" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TopAutori" nillable="true" type="tns:TopAutori" />
+  <xs:complexType name="ArrayOfTopGenuri">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TopGenuri" nillable="true" type="tns:TopGenuri" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTopGenuri" nillable="true" type="tns:ArrayOfTopGenuri" />
+  <xs:complexType name="TopGenuri">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Scor" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TopGenuri" nillable="true" type="tns:TopGenuri" />
+</xs:schema>

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8080/Biblioteca?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Domain.ModelAux" />
+  <xs:import schemaLocation="http://localhost:8080/Biblioteca?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Domain" />
+  <xs:element name="AchizitieCarte">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Domain.ModelAux" minOccurs="0" name="carti" nillable="true" type="q1:AchizitieCarte" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AchizitieCarteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AchizitieCarteResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddCititor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Domain.ModelAux" minOccurs="0" name="cititor" nillable="true" type="q2:InregistrareCititor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddCititorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Domain" minOccurs="0" name="AddCititorResult" nillable="true" type="q3:CITITOR" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCarti">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="descriere" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCartiResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Domain" minOccurs="0" name="GetCartiResult" nillable="true" type="q4:ArrayOfCARTE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExistaCartea">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="titlu" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="autorNume" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="autorPrenume" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExistaCarteaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ExistaCarteaResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EsteCarteaDisponibila">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="autorNume" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="autorPrenume" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="titlu" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EsteCarteaDisponibilaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EsteCarteaDisponibilaResult" nillable="true" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ImprumutaCartea">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Domain" minOccurs="0" name="cititor" nillable="true" type="q5:CITITOR" />
+        <xs:element minOccurs="0" name="titlu" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="autorNume" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="autorPrenume" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="numerZile" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ImprumutaCarteaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ImprumutaCarteaResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PotRestituiiCartea">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Domain" minOccurs="0" name="cititor" nillable="true" type="q6:CITITOR" />
+        <xs:element minOccurs="0" name="carteId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PotRestituiiCarteaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PotRestituiiCarteaResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RestituieCarte">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Domain" minOccurs="0" name="cititor" nillable="true" type="q7:CITITOR" />
+        <xs:element minOccurs="0" name="carteId" type="xs:int" />
+        <xs:element minOccurs="0" name="textReview" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RestituieCarteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RestituieCarteResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ArataCititoriDeLaPanaLa">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="deLa" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="panaLa" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ArataCititoriDeLaPanaLaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Domain" minOccurs="0" name="ArataCititoriDeLaPanaLaResult" nillable="true" type="q8:ArrayOfCITITOR" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CeleMaiSolicitateCarti">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CeleMaiSolicitateCartiResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Domain.ModelAux" minOccurs="0" name="CeleMaiSolicitateCartiResult" nillable="true" type="q9:ArrayOfTopCarti" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AutoriiCeiMaiCautati">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AutoriiCeiMaiCautatiResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Domain.ModelAux" minOccurs="0" name="AutoriiCeiMaiCautatiResult" nillable="true" type="q10:ArrayOfTopAutori" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenurileCeleMaiCautati">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenurileCeleMaiCautatiResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Domain.ModelAux" minOccurs="0" name="GenurileCeleMaiCautatiResult" nillable="true" type="q11:ArrayOfTopGenuri" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReviewsForABook">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bookTitle" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReviewsForABookResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Domain" minOccurs="0" name="GetReviewsForABookResult" nillable="true" type="q12:ArrayOfREVIEW" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

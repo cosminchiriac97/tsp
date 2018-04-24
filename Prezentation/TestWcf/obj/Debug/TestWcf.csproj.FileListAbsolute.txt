@@ -1,0 +1,7 @@
+D:\FacultateChiriac\An3Sem2\TSP.NET\Prezentation\TestWcf\bin\Debug\TestWcf.exe.config
+D:\FacultateChiriac\An3Sem2\TSP.NET\Prezentation\TestWcf\bin\Debug\TestWcf.exe
+D:\FacultateChiriac\An3Sem2\TSP.NET\Prezentation\TestWcf\bin\Debug\TestWcf.pdb
+D:\FacultateChiriac\An3Sem2\TSP.NET\Prezentation\TestWcf\obj\Debug\TestWcf.csproj.CoreCompileInputs.cache
+D:\FacultateChiriac\An3Sem2\TSP.NET\Prezentation\TestWcf\obj\Debug\TestWcf.exe
+D:\FacultateChiriac\An3Sem2\TSP.NET\Prezentation\TestWcf\obj\Debug\TestWcf.pdb
+D:\FacultateChiriac\An3Sem2\TSP.NET\Prezentation\TestWcf\obj\Debug\TestWcf.csprojResolveAssemblyReference.cache

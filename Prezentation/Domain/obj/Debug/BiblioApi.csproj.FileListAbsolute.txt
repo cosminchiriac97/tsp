@@ -1,0 +1,11 @@
+D:\FacultateChiriac\An3Sem2\TSP.NET\Prezentation\Domain\bin\Debug\Domain.dll.config
+D:\FacultateChiriac\An3Sem2\TSP.NET\Prezentation\Domain\bin\Debug\Domain.dll
+D:\FacultateChiriac\An3Sem2\TSP.NET\Prezentation\Domain\bin\Debug\Domain.pdb
+D:\FacultateChiriac\An3Sem2\TSP.NET\Prezentation\Domain\bin\Debug\EntityFramework.dll
+D:\FacultateChiriac\An3Sem2\TSP.NET\Prezentation\Domain\bin\Debug\EntityFramework.SqlServer.dll
+D:\FacultateChiriac\An3Sem2\TSP.NET\Prezentation\Domain\bin\Debug\EntityFramework.xml
+D:\FacultateChiriac\An3Sem2\TSP.NET\Prezentation\Domain\bin\Debug\EntityFramework.SqlServer.xml
+D:\FacultateChiriac\An3Sem2\TSP.NET\Prezentation\Domain\obj\Debug\BiblioApi.csproj.CoreCompileInputs.cache
+D:\FacultateChiriac\An3Sem2\TSP.NET\Prezentation\Domain\obj\Debug\Domain.dll
+D:\FacultateChiriac\An3Sem2\TSP.NET\Prezentation\Domain\obj\Debug\Domain.pdb
+D:\FacultateChiriac\An3Sem2\TSP.NET\Prezentation\Domain\obj\Debug\BiblioApi.csprojResolveAssemblyReference.cache

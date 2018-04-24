@@ -1,0 +1,408 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BibliotecaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="BibliotecaModelStoreContainer">
+    <EntitySet Name="GENs" EntityType="BibliotecaModel.Store.GENs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AUTORs" EntityType="BibliotecaModel.Store.AUTORs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CARTEs" EntityType="BibliotecaModel.Store.CARTEs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="IMPRUMUTs" EntityType="BibliotecaModel.Store.IMPRUMUTs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CITITORs" EntityType="BibliotecaModel.Store.CITITORs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="REVIEWs" EntityType="BibliotecaModel.Store.REVIEWs" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="AUTORCARTE" Association="BibliotecaModel.Store.AUTORCARTE">
+      <End Role="AUTOR" EntitySet="AUTORs" />
+      <End Role="CARTE" EntitySet="CARTEs" />
+    </AssociationSet>
+    <AssociationSet Name="CARTEGEN" Association="BibliotecaModel.Store.CARTEGEN">
+      <End Role="CARTE" EntitySet="CARTEs" />
+      <End Role="GEN" EntitySet="GENs" />
+    </AssociationSet>
+    <AssociationSet Name="IMPRUMUTCARTE" Association="BibliotecaModel.Store.IMPRUMUTCARTE">
+      <End Role="IMPRUMUT" EntitySet="IMPRUMUTs" />
+      <End Role="CARTE" EntitySet="CARTEs" />
+    </AssociationSet>
+    <AssociationSet Name="IMPRUMUTCITITOR" Association="BibliotecaModel.Store.IMPRUMUTCITITOR">
+      <End Role="IMPRUMUT" EntitySet="IMPRUMUTs" />
+      <End Role="CITITOR" EntitySet="CITITORs" />
+    </AssociationSet>
+    <AssociationSet Name="REVIEWIMPRUMUT" Association="BibliotecaModel.Store.REVIEWIMPRUMUT">
+      <End Role="REVIEW" EntitySet="REVIEWs" />
+      <End Role="IMPRUMUT" EntitySet="IMPRUMUTs" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="GENs">
+    <Key>
+      <PropertyRef Name="GenId" />
+    </Key>
+    <Property Name="GenId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descriere" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="AUTORs">
+    <Key>
+      <PropertyRef Name="AutorId" />
+    </Key>
+    <Property Name="AutorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nume" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Prenume" Type="nvarchar" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="CARTEs">
+    <Key>
+      <PropertyRef Name="CarteId" />
+    </Key>
+    <Property Name="CarteId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AutorId" Type="int" Nullable="false" />
+    <Property Name="Titlu" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="GenId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="IMPRUMUTs">
+    <Key>
+      <PropertyRef Name="ImprumutId" />
+    </Key>
+    <Property Name="ImprumutId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CarteId" Type="int" Nullable="false" />
+    <Property Name="CititorId" Type="int" Nullable="false" />
+    <Property Name="DataImprumut" Type="datetime" Nullable="false" />
+    <Property Name="DataScadenta" Type="datetime" Nullable="false" />
+    <Property Name="DataRestituire" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="CITITORs">
+    <Key>
+      <PropertyRef Name="CititorId" />
+    </Key>
+    <Property Name="CititorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nume" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="Prenume" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="Adresa" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Stare" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="REVIEWs">
+    <Key>
+      <PropertyRef Name="ReviewId" />
+    </Key>
+    <Property Name="ReviewId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ImprumutId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="AUTORCARTE">
+    <End Role="AUTOR" Type="BibliotecaModel.Store.AUTORs" Multiplicity="1" />
+    <End Role="CARTE" Type="BibliotecaModel.Store.CARTEs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AUTOR">
+        <PropertyRef Name="AutorId" />
+      </Principal>
+      <Dependent Role="CARTE">
+        <PropertyRef Name="AutorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CARTEGEN">
+    <End Role="CARTE" Type="BibliotecaModel.Store.CARTEs" Multiplicity="*" />
+    <End Role="GEN" Type="BibliotecaModel.Store.GENs" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="GEN">
+        <PropertyRef Name="GenId" />
+      </Principal>
+      <Dependent Role="CARTE">
+        <PropertyRef Name="GenId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="IMPRUMUTCARTE">
+    <End Role="IMPRUMUT" Type="BibliotecaModel.Store.IMPRUMUTs" Multiplicity="*" />
+    <End Role="CARTE" Type="BibliotecaModel.Store.CARTEs" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="CARTE">
+        <PropertyRef Name="CarteId" />
+      </Principal>
+      <Dependent Role="IMPRUMUT">
+        <PropertyRef Name="CarteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="IMPRUMUTCITITOR">
+    <End Role="IMPRUMUT" Type="BibliotecaModel.Store.IMPRUMUTs" Multiplicity="*" />
+    <End Role="CITITOR" Type="BibliotecaModel.Store.CITITORs" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="CITITOR">
+        <PropertyRef Name="CititorId" />
+      </Principal>
+      <Dependent Role="IMPRUMUT">
+        <PropertyRef Name="CititorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="REVIEWIMPRUMUT">
+    <End Role="REVIEW" Type="BibliotecaModel.Store.REVIEWs" Multiplicity="*" />
+    <End Role="IMPRUMUT" Type="BibliotecaModel.Store.IMPRUMUTs" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="IMPRUMUT">
+        <PropertyRef Name="ImprumutId" />
+      </Principal>
+      <Dependent Role="REVIEW">
+        <PropertyRef Name="ImprumutId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="BibliotecaModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="BibliotecaModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="GENs" EntityType="BibliotecaModel.GEN" />
+          <EntitySet Name="AUTORs" EntityType="BibliotecaModel.AUTOR" />
+          <EntitySet Name="CARTEs" EntityType="BibliotecaModel.CARTE" />
+          <AssociationSet Name="AUTORCARTE" Association="BibliotecaModel.AUTORCARTE">
+            <End Role="AUTOR" EntitySet="AUTORs" />
+            <End Role="CARTE" EntitySet="CARTEs" />
+          </AssociationSet>
+          <AssociationSet Name="CARTEGEN" Association="BibliotecaModel.CARTEGEN">
+            <End Role="CARTE" EntitySet="CARTEs" />
+            <End Role="GEN" EntitySet="GENs" />
+          </AssociationSet>
+          <EntitySet Name="IMPRUMUTs" EntityType="BibliotecaModel.IMPRUMUT" />
+          <AssociationSet Name="IMPRUMUTCARTE" Association="BibliotecaModel.IMPRUMUTCARTE">
+            <End Role="IMPRUMUT" EntitySet="IMPRUMUTs" />
+            <End Role="CARTE" EntitySet="CARTEs" />
+          </AssociationSet>
+          <EntitySet Name="CITITORs" EntityType="BibliotecaModel.CITITOR" />
+          <AssociationSet Name="IMPRUMUTCITITOR" Association="BibliotecaModel.IMPRUMUTCITITOR">
+            <End Role="IMPRUMUT" EntitySet="IMPRUMUTs" />
+            <End Role="CITITOR" EntitySet="CITITORs" />
+          </AssociationSet>
+          <EntitySet Name="REVIEWs" EntityType="BibliotecaModel.REVIEW" />
+          <AssociationSet Name="REVIEWIMPRUMUT" Association="BibliotecaModel.REVIEWIMPRUMUT">
+            <End Role="REVIEW" EntitySet="REVIEWs" />
+            <End Role="IMPRUMUT" EntitySet="IMPRUMUTs" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="GEN">
+          <Key>
+            <PropertyRef Name="GenId" />
+          </Key>
+          <Property Name="GenId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descriere" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Carti" Relationship="BibliotecaModel.CARTEGEN" FromRole="GEN" ToRole="CARTE" />
+        </EntityType>
+        <EntityType Name="AUTOR">
+          <Key>
+            <PropertyRef Name="AutorId" />
+          </Key>
+          <Property Name="AutorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nume" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="Prenume" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Carti" Relationship="BibliotecaModel.AUTORCARTE" FromRole="AUTOR" ToRole="CARTE" />
+        </EntityType>
+        <EntityType Name="CARTE">
+          <Key>
+            <PropertyRef Name="CarteId" />
+          </Key>
+          <Property Name="CarteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Autor" Relationship="BibliotecaModel.AUTORCARTE" FromRole="CARTE" ToRole="AUTOR" />
+          <Property Name="AutorId" Type="Int32" Nullable="false" />
+          <Property Name="Titlu" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Gen" Relationship="BibliotecaModel.CARTEGEN" FromRole="CARTE" ToRole="GEN" />
+          <Property Name="GenId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Imprumut" Relationship="BibliotecaModel.IMPRUMUTCARTE" FromRole="CARTE" ToRole="IMPRUMUT" />
+        </EntityType>
+        <Association Name="AUTORCARTE">
+          <End Type="BibliotecaModel.AUTOR" Role="AUTOR" Multiplicity="1" />
+          <End Type="BibliotecaModel.CARTE" Role="CARTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUTOR">
+              <PropertyRef Name="AutorId" />
+            </Principal>
+            <Dependent Role="CARTE">
+              <PropertyRef Name="AutorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CARTEGEN">
+          <End Type="BibliotecaModel.CARTE" Role="CARTE" Multiplicity="*" />
+          <End Type="BibliotecaModel.GEN" Role="GEN" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="GEN">
+              <PropertyRef Name="GenId" />
+            </Principal>
+            <Dependent Role="CARTE">
+              <PropertyRef Name="GenId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="IMPRUMUT">
+          <Key>
+            <PropertyRef Name="ImprumutId" />
+          </Key>
+          <Property Name="ImprumutId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Carti" Relationship="BibliotecaModel.IMPRUMUTCARTE" FromRole="IMPRUMUT" ToRole="CARTE" />
+          <Property Name="CarteId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Cititor" Relationship="BibliotecaModel.IMPRUMUTCITITOR" FromRole="IMPRUMUT" ToRole="CITITOR" />
+          <Property Name="CititorId" Type="Int32" Nullable="false" />
+          <Property Name="DataImprumut" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataScadenta" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Review" Relationship="BibliotecaModel.REVIEWIMPRUMUT" FromRole="IMPRUMUT" ToRole="REVIEW" />
+          <Property Name="DataRestituire" Type="DateTime" Nullable="true" />
+        </EntityType>
+        <Association Name="IMPRUMUTCARTE">
+          <End Type="BibliotecaModel.IMPRUMUT" Role="IMPRUMUT" Multiplicity="*" />
+          <End Type="BibliotecaModel.CARTE" Role="CARTE" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="CARTE">
+              <PropertyRef Name="CarteId" />
+            </Principal>
+            <Dependent Role="IMPRUMUT">
+              <PropertyRef Name="CarteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CITITOR">
+          <Key>
+            <PropertyRef Name="CititorId" />
+          </Key>
+          <Property Name="CititorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nume" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="false" />
+          <Property Name="Prenume" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="false" />
+          <Property Name="Adresa" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Stare" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="Imprumut" Relationship="BibliotecaModel.IMPRUMUTCITITOR" FromRole="CITITOR" ToRole="IMPRUMUT" />
+        </EntityType>
+        <Association Name="IMPRUMUTCITITOR">
+          <End Type="BibliotecaModel.IMPRUMUT" Role="IMPRUMUT" Multiplicity="*" />
+          <End Type="BibliotecaModel.CITITOR" Role="CITITOR" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="CITITOR">
+              <PropertyRef Name="CititorId" />
+            </Principal>
+            <Dependent Role="IMPRUMUT">
+              <PropertyRef Name="CititorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="REVIEW">
+          <Key>
+            <PropertyRef Name="ReviewId" />
+          </Key>
+          <Property Name="ReviewId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Imprumut" Relationship="BibliotecaModel.REVIEWIMPRUMUT" FromRole="REVIEW" ToRole="IMPRUMUT" />
+          <Property Name="ImprumutId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="REVIEWIMPRUMUT">
+          <End Type="BibliotecaModel.REVIEW" Role="REVIEW" Multiplicity="*" />
+          <End Type="BibliotecaModel.IMPRUMUT" Role="IMPRUMUT" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="IMPRUMUT">
+              <PropertyRef Name="ImprumutId" />
+            </Principal>
+            <Dependent Role="REVIEW">
+              <PropertyRef Name="ImprumutId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BibliotecaModelStoreContainer" CdmEntityContainer="BibliotecaModelContainer">
+    <EntitySetMapping Name="GENs">
+      <EntityTypeMapping TypeName="IsTypeOf(BibliotecaModel.GEN)">
+        <MappingFragment StoreEntitySet="GENs">
+          <ScalarProperty Name="GenId" ColumnName="GenId" />
+          <ScalarProperty Name="Descriere" ColumnName="Descriere" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AUTORs">
+      <EntityTypeMapping TypeName="IsTypeOf(BibliotecaModel.AUTOR)">
+        <MappingFragment StoreEntitySet="AUTORs">
+          <ScalarProperty Name="AutorId" ColumnName="AutorId" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="Prenume" ColumnName="Prenume" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CARTEs">
+      <EntityTypeMapping TypeName="IsTypeOf(BibliotecaModel.CARTE)">
+        <MappingFragment StoreEntitySet="CARTEs">
+          <ScalarProperty Name="CarteId" ColumnName="CarteId" />
+          <ScalarProperty Name="AutorId" ColumnName="AutorId" />
+          <ScalarProperty Name="Titlu" ColumnName="Titlu" />
+          <ScalarProperty Name="GenId" ColumnName="GenId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IMPRUMUTs">
+      <EntityTypeMapping TypeName="IsTypeOf(BibliotecaModel.IMPRUMUT)">
+        <MappingFragment StoreEntitySet="IMPRUMUTs">
+          <ScalarProperty Name="ImprumutId" ColumnName="ImprumutId" />
+          <ScalarProperty Name="CarteId" ColumnName="CarteId" />
+          <ScalarProperty Name="CititorId" ColumnName="CititorId" />
+          <ScalarProperty Name="DataImprumut" ColumnName="DataImprumut" />
+          <ScalarProperty Name="DataScadenta" ColumnName="DataScadenta" />
+          <ScalarProperty Name="DataRestituire" ColumnName="DataRestituire" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CITITORs">
+      <EntityTypeMapping TypeName="IsTypeOf(BibliotecaModel.CITITOR)">
+        <MappingFragment StoreEntitySet="CITITORs">
+          <ScalarProperty Name="CititorId" ColumnName="CititorId" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="Prenume" ColumnName="Prenume" />
+          <ScalarProperty Name="Adresa" ColumnName="Adresa" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Stare" ColumnName="Stare" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="REVIEWs">
+      <EntityTypeMapping TypeName="IsTypeOf(BibliotecaModel.REVIEW)">
+        <MappingFragment StoreEntitySet="REVIEWs">
+          <ScalarProperty Name="ReviewId" ColumnName="ReviewId" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="ImprumutId" ColumnName="ImprumutId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b9d16637ca824deea90ff97e286626aa" Name="Diagram1">
+        <EntityTypeShape EntityType="BibliotecaModel.GEN" Width="1.5" PointX="7.5" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="BibliotecaModel.AUTOR" Width="1.5" PointX="5.25" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BibliotecaModel.CARTE" Width="1.5" PointX="5.25" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BibliotecaModel.IMPRUMUT" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BibliotecaModel.CITITOR" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BibliotecaModel.REVIEW" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <AssociationConnector Association="BibliotecaModel.AUTORCARTE" ManuallyRouted="false" />
+        <AssociationConnector Association="BibliotecaModel.CARTEGEN" ManuallyRouted="false" />
+        <AssociationConnector Association="BibliotecaModel.IMPRUMUTCARTE" ManuallyRouted="false" />
+        <AssociationConnector Association="BibliotecaModel.IMPRUMUTCITITOR" ManuallyRouted="false" />
+        <AssociationConnector Association="BibliotecaModel.REVIEWIMPRUMUT" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

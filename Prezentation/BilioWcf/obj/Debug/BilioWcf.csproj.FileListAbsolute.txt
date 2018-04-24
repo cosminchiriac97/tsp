@@ -1,0 +1,14 @@
+D:\FacultateChiriac\An3Sem2\TSP.NET\Prezentation\BilioWcf\obj\Debug\BilioWcf.csprojResolveAssemblyReference.cache
+D:\FacultateChiriac\An3Sem2\TSP.NET\Prezentation\BilioWcf\obj\Debug\BilioWcf.csproj.CoreCompileInputs.cache
+D:\FacultateChiriac\An3Sem2\TSP.NET\Prezentation\BilioWcf\bin\Debug\BilioWcf.dll.config
+D:\FacultateChiriac\An3Sem2\TSP.NET\Prezentation\BilioWcf\bin\Debug\BilioWcf.dll
+D:\FacultateChiriac\An3Sem2\TSP.NET\Prezentation\BilioWcf\bin\Debug\BilioWcf.pdb
+D:\FacultateChiriac\An3Sem2\TSP.NET\Prezentation\BilioWcf\bin\Debug\AutoMapper.dll
+D:\FacultateChiriac\An3Sem2\TSP.NET\Prezentation\BilioWcf\bin\Debug\Domain.dll
+D:\FacultateChiriac\An3Sem2\TSP.NET\Prezentation\BilioWcf\bin\Debug\EntityFramework.dll
+D:\FacultateChiriac\An3Sem2\TSP.NET\Prezentation\BilioWcf\bin\Debug\Domain.pdb
+D:\FacultateChiriac\An3Sem2\TSP.NET\Prezentation\BilioWcf\bin\Debug\Domain.dll.config
+D:\FacultateChiriac\An3Sem2\TSP.NET\Prezentation\BilioWcf\bin\Debug\AutoMapper.xml
+D:\FacultateChiriac\An3Sem2\TSP.NET\Prezentation\BilioWcf\bin\Debug\EntityFramework.xml
+D:\FacultateChiriac\An3Sem2\TSP.NET\Prezentation\BilioWcf\obj\Debug\BilioWcf.dll
+D:\FacultateChiriac\An3Sem2\TSP.NET\Prezentation\BilioWcf\obj\Debug\BilioWcf.pdb

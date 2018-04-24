@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="BiblioWcf" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8080/Biblioteca?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8080/Biblioteca?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8080/Biblioteca?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Domain.ModelAux" />
+      <xsd:import schemaLocation="http://localhost:8080/Biblioteca?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Domain" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IBiblioWcf_AchizitieCarte_InputMessage">
+    <wsdl:part name="parameters" element="tns:AchizitieCarte" />
+  </wsdl:message>
+  <wsdl:message name="IBiblioWcf_AchizitieCarte_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AchizitieCarteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBiblioWcf_AddCititor_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCititor" />
+  </wsdl:message>
+  <wsdl:message name="IBiblioWcf_AddCititor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCititorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBiblioWcf_GetCarti_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCarti" />
+  </wsdl:message>
+  <wsdl:message name="IBiblioWcf_GetCarti_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCartiResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBiblioWcf_ExistaCartea_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExistaCartea" />
+  </wsdl:message>
+  <wsdl:message name="IBiblioWcf_ExistaCartea_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExistaCarteaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBiblioWcf_EsteCarteaDisponibila_InputMessage">
+    <wsdl:part name="parameters" element="tns:EsteCarteaDisponibila" />
+  </wsdl:message>
+  <wsdl:message name="IBiblioWcf_EsteCarteaDisponibila_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EsteCarteaDisponibilaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBiblioWcf_ImprumutaCartea_InputMessage">
+    <wsdl:part name="parameters" element="tns:ImprumutaCartea" />
+  </wsdl:message>
+  <wsdl:message name="IBiblioWcf_ImprumutaCartea_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ImprumutaCarteaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBiblioWcf_PotRestituiiCartea_InputMessage">
+    <wsdl:part name="parameters" element="tns:PotRestituiiCartea" />
+  </wsdl:message>
+  <wsdl:message name="IBiblioWcf_PotRestituiiCartea_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PotRestituiiCarteaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBiblioWcf_RestituieCarte_InputMessage">
+    <wsdl:part name="parameters" element="tns:RestituieCarte" />
+  </wsdl:message>
+  <wsdl:message name="IBiblioWcf_RestituieCarte_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RestituieCarteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBiblioWcf_ArataCititoriDeLaPanaLa_InputMessage">
+    <wsdl:part name="parameters" element="tns:ArataCititoriDeLaPanaLa" />
+  </wsdl:message>
+  <wsdl:message name="IBiblioWcf_ArataCititoriDeLaPanaLa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ArataCititoriDeLaPanaLaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBiblioWcf_CeleMaiSolicitateCarti_InputMessage">
+    <wsdl:part name="parameters" element="tns:CeleMaiSolicitateCarti" />
+  </wsdl:message>
+  <wsdl:message name="IBiblioWcf_CeleMaiSolicitateCarti_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CeleMaiSolicitateCartiResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBiblioWcf_AutoriiCeiMaiCautati_InputMessage">
+    <wsdl:part name="parameters" element="tns:AutoriiCeiMaiCautati" />
+  </wsdl:message>
+  <wsdl:message name="IBiblioWcf_AutoriiCeiMaiCautati_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AutoriiCeiMaiCautatiResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBiblioWcf_GenurileCeleMaiCautati_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenurileCeleMaiCautati" />
+  </wsdl:message>
+  <wsdl:message name="IBiblioWcf_GenurileCeleMaiCautati_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenurileCeleMaiCautatiResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBiblioWcf_GetReviewsForABook_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReviewsForABook" />
+  </wsdl:message>
+  <wsdl:message name="IBiblioWcf_GetReviewsForABook_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReviewsForABookResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IBiblioWcf">
+    <wsdl:operation name="AchizitieCarte">
+      <wsdl:input wsam:Action="http://tempuri.org/IBiblioWcf/AchizitieCarte" message="tns:IBiblioWcf_AchizitieCarte_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IBiblioWcf/AchizitieCarteResponse" message="tns:IBiblioWcf_AchizitieCarte_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCititor">
+      <wsdl:input wsam:Action="http://tempuri.org/IBiblioWcf/AddCititor" message="tns:IBiblioWcf_AddCititor_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IBiblioWcf/AddCititorResponse" message="tns:IBiblioWcf_AddCititor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCarti">
+      <wsdl:input wsam:Action="http://tempuri.org/IBiblioWcf/GetCarti" message="tns:IBiblioWcf_GetCarti_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IBiblioWcf/GetCartiResponse" message="tns:IBiblioWcf_GetCarti_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExistaCartea">
+      <wsdl:input wsam:Action="http://tempuri.org/IBiblioWcf/ExistaCartea" message="tns:IBiblioWcf_ExistaCartea_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IBiblioWcf/ExistaCarteaResponse" message="tns:IBiblioWcf_ExistaCartea_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EsteCarteaDisponibila">
+      <wsdl:input wsam:Action="http://tempuri.org/IBiblioWcf/EsteCarteaDisponibila" message="tns:IBiblioWcf_EsteCarteaDisponibila_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IBiblioWcf/EsteCarteaDisponibilaResponse" message="tns:IBiblioWcf_EsteCarteaDisponibila_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ImprumutaCartea">
+      <wsdl:input wsam:Action="http://tempuri.org/IBiblioWcf/ImprumutaCartea" message="tns:IBiblioWcf_ImprumutaCartea_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IBiblioWcf/ImprumutaCarteaResponse" message="tns:IBiblioWcf_ImprumutaCartea_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PotRestituiiCartea">
+      <wsdl:input wsam:Action="http://tempuri.org/IBiblioWcf/PotRestituiiCartea" message="tns:IBiblioWcf_PotRestituiiCartea_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IBiblioWcf/PotRestituiiCarteaResponse" message="tns:IBiblioWcf_PotRestituiiCartea_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RestituieCarte">
+      <wsdl:input wsam:Action="http://tempuri.org/IBiblioWcf/RestituieCarte" message="tns:IBiblioWcf_RestituieCarte_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IBiblioWcf/RestituieCarteResponse" message="tns:IBiblioWcf_RestituieCarte_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ArataCititoriDeLaPanaLa">
+      <wsdl:input wsam:Action="http://tempuri.org/IBiblioWcf/ArataCititoriDeLaPanaLa" message="tns:IBiblioWcf_ArataCititoriDeLaPanaLa_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IBiblioWcf/ArataCititoriDeLaPanaLaResponse" message="tns:IBiblioWcf_ArataCititoriDeLaPanaLa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CeleMaiSolicitateCarti">
+      <wsdl:input wsam:Action="http://tempuri.org/IBiblioWcf/CeleMaiSolicitateCarti" message="tns:IBiblioWcf_CeleMaiSolicitateCarti_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IBiblioWcf/CeleMaiSolicitateCartiResponse" message="tns:IBiblioWcf_CeleMaiSolicitateCarti_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AutoriiCeiMaiCautati">
+      <wsdl:input wsam:Action="http://tempuri.org/IBiblioWcf/AutoriiCeiMaiCautati" message="tns:IBiblioWcf_AutoriiCeiMaiCautati_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IBiblioWcf/AutoriiCeiMaiCautatiResponse" message="tns:IBiblioWcf_AutoriiCeiMaiCautati_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenurileCeleMaiCautati">
+      <wsdl:input wsam:Action="http://tempuri.org/IBiblioWcf/GenurileCeleMaiCautati" message="tns:IBiblioWcf_GenurileCeleMaiCautati_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IBiblioWcf/GenurileCeleMaiCautatiResponse" message="tns:IBiblioWcf_GenurileCeleMaiCautati_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReviewsForABook">
+      <wsdl:input wsam:Action="http://tempuri.org/IBiblioWcf/GetReviewsForABook" message="tns:IBiblioWcf_GetReviewsForABook_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IBiblioWcf/GetReviewsForABookResponse" message="tns:IBiblioWcf_GetReviewsForABook_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IBiblioWcf" type="tns:IBiblioWcf">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AchizitieCarte">
+      <soap:operation soapAction="http://tempuri.org/IBiblioWcf/AchizitieCarte" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCititor">
+      <soap:operation soapAction="http://tempuri.org/IBiblioWcf/AddCititor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCarti">
+      <soap:operation soapAction="http://tempuri.org/IBiblioWcf/GetCarti" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExistaCartea">
+      <soap:operation soapAction="http://tempuri.org/IBiblioWcf/ExistaCartea" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EsteCarteaDisponibila">
+      <soap:operation soapAction="http://tempuri.org/IBiblioWcf/EsteCarteaDisponibila" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImprumutaCartea">
+      <soap:operation soapAction="http://tempuri.org/IBiblioWcf/ImprumutaCartea" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PotRestituiiCartea">
+      <soap:operation soapAction="http://tempuri.org/IBiblioWcf/PotRestituiiCartea" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestituieCarte">
+      <soap:operation soapAction="http://tempuri.org/IBiblioWcf/RestituieCarte" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ArataCititoriDeLaPanaLa">
+      <soap:operation soapAction="http://tempuri.org/IBiblioWcf/ArataCititoriDeLaPanaLa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CeleMaiSolicitateCarti">
+      <soap:operation soapAction="http://tempuri.org/IBiblioWcf/CeleMaiSolicitateCarti" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AutoriiCeiMaiCautati">
+      <soap:operation soapAction="http://tempuri.org/IBiblioWcf/AutoriiCeiMaiCautati" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenurileCeleMaiCautati">
+      <soap:operation soapAction="http://tempuri.org/IBiblioWcf/GenurileCeleMaiCautati" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReviewsForABook">
+      <soap:operation soapAction="http://tempuri.org/IBiblioWcf/GetReviewsForABook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BiblioWcf">
+    <wsdl:port name="BasicHttpBinding_IBiblioWcf" binding="tns:BasicHttpBinding_IBiblioWcf">
+      <soap:address location="http://localhost:8080/Biblioteca" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Domain" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Domain" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="CITITOR">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Adresa" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CititorId" type="xs:int" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nume" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Prenume" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Stare" type="xs:short" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CITITOR" nillable="true" type="tns:CITITOR" />
+  <xs:complexType name="ArrayOfCARTE">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CARTE" nillable="true" type="tns:CARTE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCARTE" nillable="true" type="tns:ArrayOfCARTE" />
+  <xs:complexType name="CARTE">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AutorId" type="xs:int" />
+      <xs:element minOccurs="0" name="CarteId" type="xs:int" />
+      <xs:element minOccurs="0" name="GenId" type="xs:int" />
+      <xs:element minOccurs="0" name="Titlu" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CARTE" nillable="true" type="tns:CARTE" />
+  <xs:complexType name="ArrayOfCITITOR">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CITITOR" nillable="true" type="tns:CITITOR" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCITITOR" nillable="true" type="tns:ArrayOfCITITOR" />
+  <xs:complexType name="ArrayOfREVIEW">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="REVIEW" nillable="true" type="tns:REVIEW" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfREVIEW" nillable="true" type="tns:ArrayOfREVIEW" />
+  <xs:complexType name="REVIEW">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Imprumut" nillable="true" type="tns:IMPRUMUT" />
+      <xs:element minOccurs="0" name="ImprumutId" type="xs:int" />
+      <xs:element minOccurs="0" name="ReviewId" type="xs:int" />
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="REVIEW" nillable="true" type="tns:REVIEW" />
+  <xs:complexType name="IMPRUMUT">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CarteId" type="xs:int" />
+      <xs:element minOccurs="0" name="CititorId" type="xs:int" />
+      <xs:element minOccurs="0" name="DataImprumut" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DataRestituire" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DataScadenta" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ImprumutId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IMPRUMUT" nillable="true" type="tns:IMPRUMUT" />
+</xs:schema>

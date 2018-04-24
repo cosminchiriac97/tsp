@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="6df92efe-67e9-4d87-8f17-21462a787141" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8080/Biblioteca" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Biblioteca.disco" MetadataType="Disco" ID="5be6effb-9bd1-4f75-a55d-8bd8938e687a" SourceId="1" SourceUrl="http://localhost:8080/Biblioteca?disco" />
+    <MetadataFile FileName="Biblioteca3.xsd" MetadataType="Schema" ID="fd772271-35d3-4e18-bf17-89cb2476cb5e" SourceId="1" SourceUrl="http://localhost:8080/Biblioteca?xsd=xsd3" />
+    <MetadataFile FileName="BiblioWcf.wsdl" MetadataType="Wsdl" ID="cf8b0da4-b09e-446a-b538-f9aa74e9b0f6" SourceId="1" SourceUrl="http://localhost:8080/Biblioteca?wsdl" />
+    <MetadataFile FileName="Biblioteca.xsd" MetadataType="Schema" ID="6aa39758-1c53-4166-8207-8479535f2110" SourceId="1" SourceUrl="http://localhost:8080/Biblioteca?xsd=xsd2" />
+    <MetadataFile FileName="Biblioteca1.xsd" MetadataType="Schema" ID="eba1dc76-f285-4151-80a2-b81fd9041fea" SourceId="1" SourceUrl="http://localhost:8080/Biblioteca?xsd=xsd1" />
+    <MetadataFile FileName="Biblioteca2.xsd" MetadataType="Schema" ID="aa55c8db-1dbc-4696-8f47-de13b01eef16" SourceId="1" SourceUrl="http://localhost:8080/Biblioteca?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
